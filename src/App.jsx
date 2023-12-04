@@ -72,14 +72,11 @@ function App() {
 
   const handleInput = (e) => {
       setInputText(e.target.value)
-      console.log(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setComments((prevComments) => [...prevComments, inputText])
-
-    // setSubmitValue(inputText)
 
     setInputText('')
   }
