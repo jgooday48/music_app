@@ -17,11 +17,6 @@ const oasisAlbums = [ // object with all Oasis albums
 ]
 
 
-const albumList = oasisAlbums.map(album =>  // lists all albums and their release years
-  <li key={album.id}>
-
-  {album.title}: {album.year}
-  </li>)
 
 const intro = ( // Intro statement
   <div>
@@ -37,32 +32,44 @@ const intro = ( // Intro statement
 </div>
 )
 
+
+const albumExplainer = (
+  <div>
+    <p>Listed below are all 7 of Oasis' albums and their B-side compliation album The Masterplan</p>
+    <p>If you liked any of the albums, you can click the like button to the right of the entry</p>
+  </div>
+)
+
+
+
 function App() {
-  
-  const [counter, setCounter] = useState(0); // set hook
+  const [likeCounters, setLikeCounters] = useState(Array(oasisAlbums.length).fill(0)); // initialise a new array, fills with 0s for each album
 
-  const likeBtn = () => {
-
-    setCounter((previousState) => (previousState === 0 ? 1 : previousState - 1)); // ternary statement allows user to add 1 like and retract if they wish
+  const likeBtn = (index) => {
+    setLikeCounters((prevCounters) => {
+      const newCounters = [...prevCounters];
+      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1;
+      return newCounters;
+    });
   };
-  
+
+  const albumList = oasisAlbums.map((album, index) => (// add each album to a list with a button beside it
+    <li key={album.id}>
+      {album.title}: {album.year}
+      <button onClick={() => likeBtn(index)}> {likeCounters[index]} Likes</button> 
+    </li>
+  ));
 
   return (
     <>
-    <h1>Oasis Portfolio</h1>
-    {/* <br /> */}
-    <p>{intro}</p>
-    <br />
-    <h2>Album List</h2>
-    <ul>{albumList}
-    <button onClick={likeBtn}> { counter } Likes</button>
-    
-    </ul>
-
- 
-
+      <h1>Oasis Portfolio</h1>
+      <p>{intro}</p>
+      <h2>Album List</h2>
+      <p>{albumExplainer}</p>
+      <ul>{albumList}</ul>
     </>
-  )
+  );
 }
+
 
 export default App
