@@ -45,12 +45,14 @@ const albumExplainer = (
 const formExplainer = (
   <div>
 
-    <p>Comment here about Oasis</p>
+    <p>Comment here about why you enjoyed Oasis or if you have any critisism</p>
   </div>
 )
 
 function App() {
   const [likeCounters, setLikeCounters] = useState(Array(oasisAlbums.length).fill(0)); // initialise a new array, fills with 0s for each album
+  const [inputText, setInputText] = useState('')
+  const [comments, setComments] = useState([]);
 
   const likeBtn = (index) => {// allows only the album in question to be liked if the corresponding button is clicked
     setLikeCounters((prevCounters) => {
@@ -67,18 +69,17 @@ function App() {
     </li>
   ));
 
-  const [inputText, setInputText] = useState('')
-  const [submitValue, setSubmitValue] = useState('')
 
   const handleInput = (e) => {
       setInputText(e.target.value)
       console.log(e.target.value)
   }
-const arr = {}
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    
-    setSubmitValue(inputText)
+    setComments((prevComments) => [...prevComments, inputText])
+
+    // setSubmitValue(inputText)
 
     setInputText('')
   }
@@ -91,6 +92,8 @@ const arr = {}
       <p>{albumExplainer}</p>
       <ul>{albumList}</ul>
 
+    <h3>Comments</h3>
+    <p>{formExplainer}</p>
       <form onSubmit={handleSubmit}>
         <input type="text"
         value={inputText}
@@ -101,8 +104,12 @@ const arr = {}
         onSubmit={handleSubmit}
         
         >Submit Comment</button>
-        <p>{submitValue}</p>
     </form>
+
+    {comments.map((comment, index)=> (
+      <p key={index}>{comment}</p>
+    ))}
+
     </div>
   );
 }
