@@ -21,11 +21,13 @@ const oasisAlbums = [ // object with all Oasis albums
 const intro = ( // Intro statement
   <div>
   <p>Bursting onto the britpop scene in 1994, Oasis were a force to be reckoned with during the mid-late 90's. Their genre is britpop/rock.</p>
-  <p>The band consided of the famous Gallagher brothers: Liam Gallaher and Noel Gallagher</p>
-  <p>Their sophomore album What's the Story Morning Glory catapulted the band to superstar status. It is considered one of the greatest albums ever made and remains one of the UKs 
-    greatest selling albums.
+  <p>The band consisted of the famous Gallagher brothers: Liam Gallaher and Noel Gallagher. They infamously had several sibling arguments and are known for not getting along
+    with each other
   </p>
-  <p>The band split for good in 2008 after a heated argument between Liam and Noel. Nowadays, Liam has a successful solo career and Noel fronts his band 'Noel Gallaghers's 
+  <p>Their sophomore album What's the Story Morning Glory catapulted the band to superstar status. It is considered one of the greatest albums ever made and remains one of the UK's 
+    greatest selling albums. The album contains their biggest hits such as Wonderwall and Don't Look Back in Anger.
+  </p>
+  <p>The band split for good in 2008 after a heated argument between Liam and Noel. Nowadays, Liam has a successful solo career and Noel fronts his band 'Noel Gallagher's
     High Flying Birds.
   </p>
 
@@ -35,20 +37,25 @@ const intro = ( // Intro statement
 
 const albumExplainer = (
   <div>
-    <p>Listed below are all 7 of Oasis' albums and their B-side compliation album The Masterplan</p>
-    <p>If you liked any of the albums, you can click the like button to the right of the entry</p>
+    <p>Listed below are all 7 of Oasis' albums and their B-side compliation album The Masterplan.</p>
+    <p>If you liked any of the albums, you can click the like button to the right of the entry.</p>
   </div>
 )
 
+const formExplainer = (
+  <div>
 
+    <p>Comment here about Oasis</p>
+  </div>
+)
 
 function App() {
   const [likeCounters, setLikeCounters] = useState(Array(oasisAlbums.length).fill(0)); // initialise a new array, fills with 0s for each album
 
-  const likeBtn = (index) => {
+  const likeBtn = (index) => {// allows only the album in question to be liked if the corresponding button is clicked
     setLikeCounters((prevCounters) => {
       const newCounters = [...prevCounters];
-      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1;
+      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1; 
       return newCounters;
     });
   };
@@ -60,14 +67,43 @@ function App() {
     </li>
   ));
 
+  const [inputText, setInputText] = useState('')
+  const [submitValue, setSubmitValue] = useState('')
+
+  const handleInput = (e) => {
+      setInputText(e.target.value)
+      console.log(e.target.value)
+  }
+const arr = {}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    setSubmitValue(inputText)
+
+    setInputText('')
+  }
+
   return (
-    <>
+    <div>
       <h1>Oasis Portfolio</h1>
       <p>{intro}</p>
       <h2>Album List</h2>
       <p>{albumExplainer}</p>
       <ul>{albumList}</ul>
-    </>
+
+      <form onSubmit={handleSubmit}>
+        <input type="text"
+        value={inputText}
+        onChange={handleInput}
+        
+        />
+        <button type="submit"
+        onSubmit={handleSubmit}
+        
+        >Submit Comment</button>
+        <p>{submitValue}</p>
+    </form>
+    </div>
   );
 }
 
