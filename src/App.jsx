@@ -50,24 +50,24 @@ const formExplainer = (
 )
 
 function App() {
-  const [likeCounters, setLikeCounters] = useState(Array(oasisAlbums.length).fill(0)); // initialise a new array, fills with 0s for each album
+  const [likeCounters, setLikeCounters] = useState(Array(oasisAlbums.length).fill(0)) // initialise a new array, fills with 0s for each album
   const [inputText, setInputText] = useState('')
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([]) 
 
   const likeBtn = (index) => {// allows only the album in question to be liked if the corresponding button is clicked
     setLikeCounters((prevCounters) => {
-      const newCounters = [...prevCounters];
-      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1; 
-      return newCounters;
-    });
-  };
+      const newCounters = [...prevCounters]
+      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1
+      return newCounters
+    })
+  }
 
   const albumList = oasisAlbums.map((album, index) => (// add each album to a list with a button beside it
     <li key={album.id}>
       {album.title}: {album.year}
       <button onClick={() => likeBtn(index)}> {likeCounters[index]} Likes</button> 
     </li>
-  ));
+  ))
 
 
   const handleInput = (e) => {
@@ -108,7 +108,7 @@ function App() {
     ))}
 
     </div>
-  );
+  )
 }
 
 
