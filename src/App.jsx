@@ -44,7 +44,6 @@ const albumExplainer = (
 
 const formExplainer = (
   <div>
-
     <p>Comment here about why you enjoyed Oasis or if you have any critisism</p>
   </div>
 )
@@ -52,12 +51,12 @@ const formExplainer = (
 function App() {
   const [likeCounters, setLikeCounters] = useState(Array(oasisAlbums.length).fill(0)) // initialise a new array, fills with 0s for each album
   const [inputText, setInputText] = useState('')
-  const [comments, setComments] = useState([]) 
+  const [comments, setComments] = useState([]) // initialise empty array for comments
 
   const likeBtn = (index) => {// allows only the album in question to be liked if the corresponding button is clicked
     setLikeCounters((prevCounters) => {
       const newCounters = [...prevCounters]
-      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1
+      newCounters[index] = newCounters[index] === 0 ? 1 : newCounters[index] - 1 // ternary statement allows only one like to be added to each song
       return newCounters
     })
   }
@@ -70,14 +69,13 @@ function App() {
   ))
 
 
-  const handleInput = (e) => {
+  const handleInput = (e) => { //handles comment input
       setInputText(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { // handles submission of comments
     e.preventDefault()
     setComments((prevComments) => [...prevComments, inputText])
-
     setInputText('')
   }
 
@@ -85,22 +83,24 @@ function App() {
     <div>
       <h1>Oasis Portfolio</h1>
       <p>{intro}</p>
+      
       <h2>Album List</h2>
       <p>{albumExplainer}</p>
       <ul>{albumList}</ul>
 
     <h3>Comments</h3>
     <p>{formExplainer}</p>
+
       <form onSubmit={handleSubmit}>
         <input type="text"
         value={inputText}
         onChange={handleInput}
-        
         />
+
         <button type="submit"
         onSubmit={handleSubmit}
-        
         >Submit Comment</button>
+
     </form>
 
     {comments.map((comment, index)=> (
