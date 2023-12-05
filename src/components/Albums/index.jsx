@@ -34,8 +34,13 @@ const Albums = () => {
     ))
 
     return (
+        <>
+            <p>Listed below are all 7 of Oasis' albums and their B-side compliation album The Masterplan.</p>
+            <p>If you liked any of the albums, you can click the like button to the right of the entry.</p>
+            <ul>{albumList}</ul>
+        
+        </>
 
-        <ul>{albumList}</ul>
 
     )
 }

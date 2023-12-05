@@ -17,6 +17,7 @@ const Submit = () => {
 
     return (
         <>
+          <p>Comment here about why you enjoyed Oasis or if you have any critisism</p>
           <form onSubmit={handleSubmit}>
           <input type="text" value={inputText} onChange={handleInput}/>
 
