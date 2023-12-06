@@ -1,7 +1,7 @@
 # Oasis Portfolio
 This app is a portfolio of Oasis' discography.
 
-## Instructions for installation
+## Instructions for Installation and Usage
 - Clone or fork this repo
 - In the console run `npm i`
 - To run the app, run `npm run dev` in the console
