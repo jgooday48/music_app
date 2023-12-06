@@ -1,8 +1,12 @@
 import React from 'react'
-
+import * as components from '../../components'
 const About = () => {
   return (
-    <div> About</div>
+    <>  
+      <h1>About Oasis</h1>
+      <components.IntroText />
+
+    </>
   )
 }
 

@@ -21,6 +21,10 @@ const NavBar = () => {
             <NavLink to="/about" style={({ isActive }) => (isActive ? activeStyle : undefined)}>About</NavLink>
           </li>
 
+          <li>
+            <NavLink to="/discography" style={({ isActive }) => (isActive ? activeStyle : undefined)}>Discography</NavLink>
+          </li>
+
   
   
         </ul>

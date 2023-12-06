@@ -1,5 +1,3 @@
 export { default as Home} from './Home'
 export { default as About} from './About'
-// export { default as Shop} from './Shop'
-// export { default as NotFound} from './NotFound'
-// export { default as ShopItem} from './ShopItem'
+export { default as Discography} from './Discography'
