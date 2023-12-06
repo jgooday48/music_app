@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as components from '../../components'
+
 const Home = () => {
 
   return (
