@@ -24,8 +24,10 @@ function App() {
 
     <Route path="/" index element={<Pages.Home />}/>
     <Route path="/about" element={<Pages.About />}/>
-    {/* <Route></Route> */}
-    <Route path="/discography" element={<Pages.Discography />}/>
+
+    <Route path='/' element={<ProtectedRoute redirectTo="/login" />}>
+      <Route path="/discography" element={<Pages.Discography />}/>
+    </Route>
     <Route path="/login" element={<Pages.Login/>}/>
     <Route path="/signup" element={<Pages.Signup/>}/>
     <Route path="*" element={<h1>{location.pathname} page does not exist</h1>} />
@@ -33,7 +35,7 @@ function App() {
   </Route>
 
 
-</Routes>
+  </Routes>
     </AuthProvider>
 
 </>
