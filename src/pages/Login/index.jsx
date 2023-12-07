@@ -53,8 +53,8 @@ const Login = () => {
             <input
               type="text"
               id="email"
-              className="mr10 p10"
-              placeholder="email"
+  
+
               autoComplete="off"
               value={inputValuee}
               onChange={handleInpute}
@@ -65,8 +65,8 @@ const Login = () => {
       <input
         type="text"
         id="username"
-        className="mr10 p10"
-        placeholder="type your name"
+
+
         autoComplete="off"
         value={inputValue}
         onChange={handleInput}
@@ -78,8 +78,8 @@ const Login = () => {
       <input
         type="password"
         id="password"
-        className="mr10 p10"
-        placeholder="type your password"
+
+
         autoComplete="off"
         value={inputValuep}
         onChange={handleInputp}
@@ -87,7 +87,7 @@ const Login = () => {
         required
       />
 
-      <input type="submit" className="p10" />
+      <input type="submit" />
     </form>
 
     </>

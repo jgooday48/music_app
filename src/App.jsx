@@ -13,34 +13,31 @@ function App() {
 
 
   return (
-
-<>
-
-
+  <>
     <AuthProvider>
-  <Routes>
+      <Routes>
 
-    <Route path="/" element={<NavBar/>}>
+          <Route path="/" element={<NavBar/>}>
 
-    <Route path="/" index element={<Pages.Home />}/>
-    <Route path="/about" element={<Pages.About />}/>
-      <Route path="/discography" element={<Pages.Discography />}/>
+          <Route path="/" index element={<Pages.Home />}/>
+          <Route path="/about" element={<Pages.About />}/>
+          <Route path="/discography" element={<Pages.Discography />}/>
 
-    <Route path='/' element={<ProtectedRoute redirectTo="/login" />}>
-      <Route path="/thread" element={<Pages.Discussion />}/>
-    </Route>
-    
-    <Route path="/login" element={<Pages.Login/>}/>
-    <Route path="/signup" element={<Pages.Signup/>}/>
-    <Route path="*" element={<h1>{location.pathname} page does not exist</h1>} />
+          <Route path='/' element={<ProtectedRoute redirectTo="/login" />}>
+            <Route path="/thread" element={<Pages.Discussion />}/>
+          </Route>
 
-  </Route>
+          <Route path="/login" element={<Pages.Login/>}/>
+          <Route path="/signup" element={<Pages.Signup/>}/>
+          <Route path="*" element={<h1>{location.pathname} page does not exist</h1>} />
+
+        </Route>
 
 
-  </Routes>
+      </Routes>
     </AuthProvider>
 
-</>
+  </>
 
 
   )

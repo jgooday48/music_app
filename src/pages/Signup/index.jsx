@@ -49,8 +49,6 @@ const Signup = () => {
             <input
               type="text"
               id="email"
-              className="mr10 p10"
-              placeholder="email"
               autoComplete="off"
               value={inputValuee}
               onChange={handleInpute}
@@ -61,8 +59,6 @@ const Signup = () => {
       <input
         type="text"
         id="username"
-        className="mr10 p10"
-        placeholder="type your name"
         autoComplete="off"
         value={inputValue}
         onChange={handleInput}
@@ -70,12 +66,10 @@ const Signup = () => {
         required
       />
 
-      <label htmlFor="password" className="mr10">Password</label>
+      <label htmlFor="password">Password</label>
       <input
         type="password"
         id="password"
-        className="mr10 p10"
-        placeholder="type your password"
         autoComplete="off"
         value={inputValuep}
         onChange={handleInputp}
@@ -83,7 +77,7 @@ const Signup = () => {
         required
       />
 
-      <input type="submit" className="p10" />
+      <input id="submit" type="submit" />
     </form>
     </>
   );
