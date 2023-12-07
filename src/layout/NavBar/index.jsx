@@ -24,6 +24,10 @@ const NavBar = () => {
           <li>
             <NavLink to="/discography" style={({ isActive }) => (isActive ? activeStyle : undefined)}>Discography</NavLink>
           </li>
+
+          <li>
+            <NavLink to="/thread" style={({ isActive }) => (isActive ? activeStyle : undefined)}>Discussion Board</NavLink>
+          </li>
           <li>
             <NavLink to="/login" style={({ isActive }) => (isActive ? activeStyle : undefined)}>Login</NavLink>
           </li>

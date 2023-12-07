@@ -12,10 +12,10 @@ const Discography = () => {
         <h1>Album List</h1>
         < components.Albums likeCounters={likeCounters} setLikeCounters={setLikeCounters}/>
   
-        <h3>Comments</h3>
+        {/* <h3>Comments</h3>
   
   
-        <components.Submit inputText={inputText} setInputText={setInputText} comments={comments} setComments= {setComments}/>
+        <components.Submit inputText={inputText} setInputText={setInputText} comments={comments} setComments= {setComments}/> */}
       </div>
     )
 }

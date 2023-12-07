@@ -9,7 +9,7 @@ const Signup = () => {
   const [inputValuee, setinputValuee] = useState('')
   const inputRef = useRef()
   const navigate = useNavigate()
-//   const { setUser } = useAuth()
+  const { setUser } = useAuth()
 
   useEffect(() => {
     inputRef.current.focus()
@@ -32,7 +32,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // setUser(inputValue)
+    setUser(inputValue)
     navigate('/')
   }
 
