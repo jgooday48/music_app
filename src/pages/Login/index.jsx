@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useAuth } from '../../contexts'
+import { useAuth } from '../../contexts'
 // import './style.css'
 
 
@@ -14,7 +14,7 @@ const Login = () => {
   const [inputValuee, setinputValuee] = useState('')
   const inputRef = useRef()
   const navigate = useNavigate()
-//   const { setUser } = useAuth()
+  const { setUser } = useAuth()
 
   useEffect(() => {
     inputRef.current.focus()
@@ -37,7 +37,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // setUser(inputValue)
+    setUser(inputValue)
     navigate('/')
   }
 

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { NavBar } from './layout'
+import ProtectedRoute from "./routes"
 import * as Pages from './pages'
 import './App.css'
 
-// import { AuthProvider } from "./contexts"
+import { AuthProvider } from "./contexts"
 
 
 function App() {
@@ -15,21 +16,25 @@ function App() {
 
 <>
 
- {/* <NavBar/> */}
- <Routes>
 
-  <Route path="/" element={<NavBar/>}>
+    <AuthProvider>
+  <Routes>
 
-  <Route path="/" index element={<Pages.Home />}/>
-  <Route path="/about" element={<Pages.About />}/>
-  <Route path="/discography" element={<Pages.Discography />}/>
-  <Route path="/login" element={<Pages.Login/>}/>
-  <Route path="/signup" element={<Pages.Signup/>}/>
+    <Route path="/" element={<NavBar/>}>
+
+    <Route path="/" index element={<Pages.Home />}/>
+    <Route path="/about" element={<Pages.About />}/>
+    {/* <Route></Route> */}
+    <Route path="/discography" element={<Pages.Discography />}/>
+    <Route path="/login" element={<Pages.Login/>}/>
+    <Route path="/signup" element={<Pages.Signup/>}/>
+    <Route path="*" element={<h1>{location.pathname} page does not exist</h1>} />
 
   </Route>
 
 
 </Routes>
+    </AuthProvider>
 
 </>
 
