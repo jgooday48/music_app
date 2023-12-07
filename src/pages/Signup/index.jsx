@@ -55,6 +55,7 @@ const Signup = () => {
               value={inputValuee}
               onChange={handleInpute}
               ref={inputRef}
+              required
             />
       <label htmlFor="username" className="mr10">Username</label>
       <input
@@ -66,6 +67,7 @@ const Signup = () => {
         value={inputValue}
         onChange={handleInput}
         ref={inputRef}
+        required
       />
 
       <label htmlFor="password" className="mr10">Password</label>
@@ -78,6 +80,7 @@ const Signup = () => {
         value={inputValuep}
         onChange={handleInputp}
         ref={inputRef}
+        required
       />
 
       <input type="submit" className="p10" />

@@ -1,9 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../contexts'
+// import { useAuth } from '../../contexts'
 // import './style.css'
 
+
+
 const Login = () => {
+
+
+
   const [inputValue, setinputValue] = useState('')
   const [inputValuep, setinputValuep] = useState('')
   const [inputValuee, setinputValuee] = useState('')
@@ -56,6 +61,7 @@ const Login = () => {
               value={inputValuee}
               onChange={handleInpute}
               ref={inputRef}
+              required
             />
       <label htmlFor="username" className="mr10">Username</label>
       <input
@@ -67,6 +73,7 @@ const Login = () => {
         value={inputValue}
         onChange={handleInput}
         ref={inputRef}
+        required
       />
 
       <label htmlFor="password" className="mr10">Password</label>
@@ -79,10 +86,12 @@ const Login = () => {
         value={inputValuep}
         onChange={handleInputp}
         ref={inputRef}
+        required
       />
 
       <input type="submit" className="p10" />
     </form>
+
     </>
   );
 }

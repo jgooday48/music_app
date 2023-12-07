@@ -4,14 +4,16 @@ import { NavBar } from './layout'
 import * as Pages from './pages'
 import './App.css'
 
-import { AuthProvider } from "./contexts"
+// import { AuthProvider } from "./contexts"
+
 
 function App() {
 
 
-  return (
-    <div>
 
+  return (
+
+<>
 
  {/* <NavBar/> */}
  <Routes>
@@ -29,7 +31,9 @@ function App() {
 
 </Routes>
 
-    </div>
+</>
+
+
   )
 }
 
