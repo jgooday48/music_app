@@ -1,0 +1,66 @@
+import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts'
+// import './style.css'
+
+const Login = () => {
+  const [inputValue, setinputValue] = useState('')
+  const [inputValuep, setinputValuep] = useState('')
+  const inputRef = useRef()
+  const navigate = useNavigate()
+//   const { setUser } = useAuth()
+
+  useEffect(() => {
+    inputRef.current.focus()
+  },[])
+
+  const handleInput = (e) => {
+    console.log(e.target.value)
+    setinputValue(e.target.value)
+  }
+
+  const handleInputp = (e) => {
+    console.log(e.target.value)
+    setinputValuep(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // setUser(inputValue)
+    navigate('/')
+  }
+
+  return (
+    <form
+      aria-label='sign in'
+      onSubmit={handleSubmit}
+    >
+      <label htmlFor="username" className="mr10">Username</label>
+      <input
+        type="text"
+        id="username"
+        className="mr10 p10"
+        placeholder="type your name"
+        autoComplete="off"
+        value={inputValue}
+        onChange={handleInput}
+        ref={inputRef}
+      />
+
+      <label htmlFor="password" className="mr10">Password</label>
+      <input
+        type="password"
+        id="password"
+        className="mr10 p10"
+        placeholder="type your password"
+        autoComplete="off"
+        value={inputValuep}
+        onChange={handleInputp}
+        ref={inputRef}
+      />
+      <input type="submit" className="p10" />
+    </form>
+  );
+}
+
+export default Login

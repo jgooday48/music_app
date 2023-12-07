@@ -31,9 +31,5 @@ describe('Home display', ()=> {
 
     })
 
-    // it('has 3 paragraphs', () => {
-    //     const ps = screen.queryAllByRole('paragraph')
-    //     expect(ps.length).toBe(0)
 
-    // })
 })
