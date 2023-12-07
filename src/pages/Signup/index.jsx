@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts'
 // import './style.css'
 
-const Login = () => {
+const Signup = () => {
   const [inputValue, setinputValue] = useState('')
   const [inputValuep, setinputValuep] = useState('')
   const [inputValuee, setinputValuee] = useState('')
@@ -39,9 +39,8 @@ const Login = () => {
   return (
 
     <>
-
-        <h1>Log in</h1>
     
+    <h1>Sign Up</h1>
     <form
       aria-label='sign in'
       onSubmit={handleSubmit}
@@ -87,4 +86,4 @@ const Login = () => {
   );
 }
 
-export default Login
+export default Signup
